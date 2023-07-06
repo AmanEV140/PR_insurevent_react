@@ -1,0 +1,48 @@
+@import "../../../mixins.scss";
+
+.common_section {
+    .what_erp {
+        margin-bottom: 100px;
+        background: #F3F2FC;
+        @include border-radius(60px);
+        padding: 40px;
+
+        img {
+            // height: 430px;
+            width: 530px;
+
+            @media(max-width:1152px) {
+                // height: 360px;
+                width: 350px;
+            }
+
+            @media(max-width:992px) {
+                width: 300px;
+            }
+        }
+
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            text-transform: capitalize;
+            color: #444444;
+            margin-bottom: 6px;
+
+            span {
+                color: $theme-blue;
+            }
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(14px);
+            line-height: 24px;
+            text-align: justify;
+            color: rgba(0, 0, 0, 0.56);
+            margin-bottom: 0;
+        }
+    }
+}

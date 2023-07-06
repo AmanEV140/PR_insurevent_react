@@ -1,0 +1,235 @@
+@import "../../../mixins.scss";
+
+.posp_wrapper {
+    .row {
+        max-width: 1224px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header {
+        margin: 90px 0 100px;
+        background: $theme-blue;
+        height: 635px;
+
+        .header_inner {
+            height: 650px;
+
+            h5 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                @include fontSize(42px);
+                line-height: 63px;
+                text-transform: capitalize;
+                color: $white;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+
+            img {
+                height: 376px;
+
+                @media(max-width:992px) {
+                    height: 250px;
+                }
+            }
+        }
+    }
+
+    .module_description {
+        margin-bottom: 100px;
+
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            text-align: center;
+            color: #444444;
+            margin-bottom: 60px;
+
+            span {
+                color: $theme-blue;
+            }
+        }
+
+        .module_description_list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            li {
+                // width: 25%;
+                width: 282px;
+                height: 195px;
+                position: relative;
+
+                h6 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 500;
+                    @include fontSize(18px);
+                    line-height: 29px;
+                    color: $black;
+                    margin-bottom: 0;
+                    padding: 100px 0 0 30px;
+                    text-align: left;
+                }
+
+                &:before {
+                    content: '';
+                    background: $black;
+                    height: 99px;
+                    width: 1px;
+                    @include position(absolute, $left: 0, $top: calc(50% - 49px));
+                }
+
+                &:after {
+                    content: '';
+                    background: $theme-blue;
+                    height: 40px;
+                    width: 11px;
+                    @include border-radius(6px);
+                    @include position(absolute, $left: 0, $top: calc(50% - 69px));
+                }
+                
+
+
+                $producticons: module_list1,
+                    module_list2,
+                    module_list3,
+                    module_list4,
+                    module_list5,
+                    module_list6,
+                    module_list7,
+                    module_list8,
+                    module_list9,
+                    module_list10,
+                    module_list11,
+                    module_list12;
+                $k: 0;
+
+                @each $icons in $producticons {
+                    $bacRightP: $k * 60;
+                    $k: $k +1;
+
+                    .#{$icons} {
+                        &:before {
+                            content: "";
+                            @include position(absolute, $left: 30px, $top: calc(50% - 70px));
+                            width: 60px;
+                            height: 60px;
+                            background: url("../../../../public/images/module_description_image_posp.svg")no-repeat -#{$bacRightP}px 0px/720px;
+                        }
+                    }
+                }
+
+
+                .module_overlay {
+                    display: none;
+
+
+                }
+
+                &:hover {
+                    .module_overlay {
+                        padding: 20px;
+                        background: $theme-blue;
+                        @include border-radius(10px);
+                        position: absolute;
+                        top: 0;
+                        z-index: 9;
+                        transition: 0.4s;
+                        height: 100%;
+                        width: 100%;
+                        display: block;
+
+                        h5 {
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 600;
+                            @include fontSize(18px);
+                            line-height: 29px;
+                            color: $white;
+                            margin-bottom: 6px;
+                        }
+
+                        p {
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 600;
+                            @include fontSize(14px);
+                            line-height: 24px;
+                            color: $white;
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .selling_points {
+        margin-bottom: 100px;
+
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            color: #444444;
+            margin-bottom: 20px;
+
+            span {
+                color: $theme-blue;
+            }
+        }
+
+        ul {
+            margin-bottom: 0;
+
+            li {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                @include fontSize(14px);
+                line-height: 24px;
+                color: rgba(0, 0, 0, 0.56);
+                margin-bottom: 10px;
+                position: relative;
+                padding-left: 58px;
+
+                &:before {
+                    content: '';
+                    background: url("../../../../public/images/posp_circle_image.svg") no-repeat;
+                    height: 10px;
+                    width: 10px;
+                    @include position(absolute, $left: 22px, $top: 6px);
+
+                }
+            }
+
+            .read_more {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                @include fontSize(14px);
+                line-height: 24px;
+                color: $theme-blue;
+                margin-bottom: 0;
+            }
+        }
+
+        .selling_dashboard_img {
+            @media(max-width:1200px) {
+                text-align: center;
+
+            }
+
+            @media(max-width:1200px) {
+                img {
+                    width: 400px;
+                }
+
+            }
+        }
+    }
+ 
+}

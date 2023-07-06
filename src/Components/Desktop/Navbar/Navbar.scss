@@ -1,0 +1,412 @@
+@import '../../../mixins.scss';
+
+.navbar {
+    padding: 8px 4px 8px;
+    height: 90px;
+    background: $white;
+    @include position(fixed, $top: 0, $left: 0);
+    width: 100%;
+    z-index: 99;
+
+
+
+    .row {
+        max-width: 1224px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &.whiteMenu {
+        .linksList {
+            li {
+                a {
+                    &.triangle_bottom {
+                        position: relative;
+
+                        &:before {
+                            content: '';
+                            @include position(absolute, $right: -14px, $top: calc(50% - 3px));
+                            width: 0;
+                            height: 0;
+                            border-left: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            border-top: 5px solid $white;
+                        }
+
+                        &:hover {
+                            a {
+                                color: $theme-blue;
+                            }
+
+                            &:before {
+                                border-left: 5px solid transparent;
+                                border-right: 5px solid transparent;
+                                border-top: 5px solid $white;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .linksList {
+        display: flex;
+        justify-content: end;
+
+        li {
+            margin-right: 25px;
+            position: relative;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+
+            a {
+                font-family: 'roboto', sans-serif;
+                @include fontSize(14px);
+                line-height: 21px;
+                display: inline-block;
+                padding: 16px 0px;
+                letter-spacing: 0.5px;
+                color: #252243;
+
+                &:hover,
+                &:focus {
+                    color: $theme-blue;
+                }
+
+                &.triangle_bottom {
+                    position: relative;
+
+                    &:before {
+                        content: '';
+                        @include position(absolute, $right: -14px, $top: calc(50% - 3px));
+                        width: 0;
+                        height: 0;
+                        border-left: 5px solid transparent;
+                        border-right: 5px solid transparent;
+                        border-top: 5px solid $black;
+                    }
+
+                    &:hover {
+                        a {
+                            color: $theme-blue;
+                        }
+
+                        &:before {
+                            border-left: 5px solid transparent;
+                            border-right: 5px solid transparent;
+                            border-top: 5px solid $theme-blue;
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            .bigMenu {
+                @include box-shadow(0px 10px 15px rgba($black, 0.15));
+                background: $white;
+                @include position(absolute, $right: calc(50% - 311px), $top: 59px);
+                display: none;
+                width: 1000px;
+                // right: calc(50% - 420px);
+                // right: calc(50% - 437px);
+                z-index: 9;
+                @include border-radius(20px);
+
+                &:before {
+                    content: "";
+                    display: block;
+                    @include position(absolute, $top: -15px, $right: 30%);
+                    border-left: 15px solid transparent;
+                    border-right: 15px solid transparent;
+                    border-bottom: 15px solid #f2f2f2;
+
+                    @media(max-width:1020px) {
+                        right: 45%;
+                    }
+
+                    @media(max-width:1100px) {
+                        right: 32%;
+                    }
+                }
+
+                @media(max-width:1100px) {
+                    width: 900px;
+                    right: calc(50% - 298px)
+                }
+
+                @media(max-width:1020px) {
+                    width: 660px;
+                    right: calc(50% - 311px)
+                }
+
+                .bigMenu_list {
+                    // min-width: 340px;
+                    // max-width: 370px;
+                    max-width: 340px;
+                    flex: auto;
+
+                    @media(max-width:1100px) {
+                        max-width: 300px;
+                    }
+
+                    @media(max-width:1020px) {
+                        min-width: 150px;
+                        max-width: 235px;
+                    }
+
+                    li {
+                        @include fontSize(12px);
+                        line-height: 20px;
+                        color: $black;
+                        font-weight: 400;
+                        position: relative;
+                        padding-left: 30px;
+                        // margin: 0 0 20px 0 !important;
+                        margin: 0 !important;
+                        padding: 10px 17px 10px 47px;
+                        @include border-radius(5px);
+
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+                        }
+
+                        &.active {
+                            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+                        }
+
+                        @media(max-width:1020px) {
+                            width: 220px;
+                        }
+
+                        a {
+                            color: $black;
+                            display: block;
+                            @include fontSize(12px);
+                            line-height: 12px;
+                            font-weight: 400;
+                            padding: 5px 0px;
+                            position: relative;
+                            width: 276px;
+
+                            @media(max-width:1020px) {
+                                width: 150px !important;
+                                line-height: 16px;
+                            }
+
+                            @media(max-width:1100px) {
+                                width: 235px;
+                            }
+                        }
+
+                        &:hover {
+                            a {
+                                color: $theme-blue;
+                            }
+
+                            &:after {
+                                border-top: 4px solid transparent;
+                                border-bottom: 4px solid transparent;
+                                border-left: 4px solid $theme-blue;
+                            }
+                        }
+
+                        &:after {
+                            @include position(absolute, $right: 10px, $top: calc(50% - 4px));
+                            content: '';
+                            // border-top: 4px solid transparent;
+                            // border-bottom: 3px solid transparent;
+                            // border-left: 6px solid $black;
+                            border-top: 4px solid transparent;
+                            border-bottom: 4px solid transparent;
+                            border-left: 4px solid $black;
+
+                            @media(max-width:1020px) {
+                                right: 9px,
+                            }
+                        }
+
+                        span {
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: 400;
+                            @include fontSize(8px);
+                            line-height: 8px;
+                            color: #444444;
+                            display: block;
+                            margin-top: 8px;
+                        }
+
+                        .link_button {
+                            display: block !important;
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: 400;
+                            @include fontSize(11px);
+                            line-height: 11px;
+                            color: $theme-blue;
+                            text-align: center;
+                            position: relative;
+
+                            &:after {
+                                display: none;
+                            }
+
+                            &:before {
+                                content: '';
+                                background: url("../../../../public/images/arrow_right.svg") no-repeat;
+                                @include position(absolute, $right: 42%, $top: 4px);
+                                height: 12px;
+                                width: 15px;
+                            }
+
+                            &.product {
+                                &:before {
+                                    right: 32%;
+
+                                    @media(max-width:1020px) {
+                                        right: 18%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.purple {
+                        background: lighten($color: $theme-blue, $amount: 30%);
+                    }
+
+                    &.light_yellow {
+                        background: rgba(211, 172, 80, 0.2);
+                        @include border-radius(0 20px 20px 0);
+
+                        li {
+                            padding-left: 20px !important;
+
+                            &:after {
+                                display: none;
+                            }
+
+                            &:hover {
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                }
+
+                $dashicons: icon1, icon2, icon3, icon4,
+                    icon5,
+                    icon6,
+                    icon7,
+                    icon8;
+                $k: 0;
+
+                @each $icons in $dashicons {
+                    $bacRightP: $k * 22;
+                    $k: $k +1;
+
+                    .#{$icons} {
+                        &:before {
+                            content: "";
+                            @include position(absolute, $left: 16px, $top: calc(50% - 11px));
+                            width: 22px;
+                            height: 22px;
+                            background: url("../../../../public/images/product_icon_one.png")no-repeat -#{$bacRightP}px 0px/176px;
+                        }
+                    }
+                }
+
+                // navbar icon two
+
+                $producticons: sub_icon1, sub_icon2, sub_icon3, sub_icon4, sub_icon5,
+                    sub_icon6;
+                $k: 0;
+
+                @each $icons in $producticons {
+                    $bacRightP: $k * 22;
+                    $k: $k +1;
+
+                    .#{$icons} {
+                        &:before {
+                            content: "";
+                            @include position(absolute, $left: 16px, $top: calc(50% - 11px));
+                            width: 22px;
+                            height: 22px;
+                            background: url("../../../../public/images/product_icon_two.png")no-repeat -#{$bacRightP}px 0px/132px;
+                        }
+                    }
+                }
+
+                $serviceicons: service_icon1, service_icon2, service_icon3, service_icon4;
+
+                $k: 0;
+
+                @each $icons in $serviceicons {
+                    $bacRightP: $k * 22;
+                    $k: $k +1;
+
+                    .#{$icons} {
+                        &:before {
+                            content: "";
+                            @include position(absolute, $left: 16px, $top: calc(50% - 11px));
+                            width: 22px;
+                            height: 22px;
+                            background: url("../../../../public/images/sevices_navbar_icon_one.png")no-repeat -#{$bacRightP}px 0px/88px;
+                        }
+                    }
+                }
+
+                $servicesicons: services_icon1, services_icon2;
+
+                $k: 0;
+
+                @each $icons in $servicesicons {
+                    $bacRightP: $k * 22;
+                    $k: $k +1;
+
+                    .#{$icons} {
+                        &:before {
+                            content: "";
+                            @include position(absolute, $left: 16px, $top: calc(50% - 11px));
+                            width: 22px;
+                            height: 22px;
+                            background: url("../../../../public/images/sevices_navbar_icon_two.png")no-repeat -#{$bacRightP}px 0px/44px;
+                        }
+                    }
+                }
+
+            }
+
+            &:hover {
+                .bigMenu {
+                    display: flex;
+                }
+            }
+
+            .blueBtn {
+                height: 41px !important;
+                padding: 10px 16px;
+                display: inline-block;
+                margin-top: 5px;
+                color: $white;
+
+                &:hover {
+                    color: $white;
+                }
+
+                &.border {
+                    border: 1px solid $white;
+                    @include border-radius(8px);
+
+                }
+            }
+
+
+        }
+    }
+
+
+}

@@ -1,0 +1,146 @@
+@import "../../../mixins.scss";
+
+.erp_wrapper {
+    .row {
+        max-width: 1224px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header {
+        margin: 90px 0 100px;
+        background: $theme-blue;
+        height: 635px;
+
+        .header_inner {
+            height: 650px;
+
+            h5 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                @include fontSize(42px);
+                line-height: 63px;
+                text-transform: capitalize;
+                color: $white;
+
+                span {
+                    font-weight: 700;
+                    display: block;
+                }
+            }
+
+            img {
+                height: 414px;
+
+                @media(max-width:1100px) {
+                    height: 300px;
+                }
+            }
+        }
+    }
+
+    .erpmodule_description {
+        margin-bottom: 100px;
+
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            text-align: center;
+            color: #444444;
+            margin-bottom: 100px;
+
+            span {
+                color: $theme-blue;
+            }
+        }
+
+        .module_box {
+            background: $white;
+            box-shadow: 26px 26px 89px rgba(0, 0, 0, 0.1);
+            @include border-radius(20px);
+            margin-bottom: 75px;
+
+            @media(max-width:1200px) {
+               min-height: 520px;
+            }
+
+            &.space_top {
+                position: relative;
+                top: 80px;
+
+                @media(max-width:1200px) {
+                    top: 0;
+                }
+            }
+
+            .inner_box {
+                background: $white;
+                @include border-radius(20px);
+                height: 276px;
+
+                img {
+                    height: 310px;
+                    position: relative;
+                    top: -65px;
+                }
+
+            }
+
+            .content_box {
+                padding: 0 30px 30px;
+
+                h5 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 600;
+                    @include fontSize(18px);
+                    line-height: 29px;
+                    text-align: center;
+                    color: rgba(0, 0, 0, 0.56);
+                    margin: 0px 0 10px;
+                    padding-top: 30px;
+                }
+
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 400;
+                    @include fontSize(14px);
+                    line-height: 24px;
+                    text-align: center;
+                    color: #252243;
+                    opacity: 0.5;
+                    margin-bottom: 0;
+                }
+            }
+
+
+
+            &:hover {
+                .inner_box {
+                    background: #F3F2FC;
+                    ;
+                    @include border-radius(20px);
+                    height: 276px;
+
+                    img {
+                        height: 310px;
+                    }
+
+                }
+
+                .content_box {
+                    h5 {
+                        color: $theme-blue;
+                    }
+
+                    p {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

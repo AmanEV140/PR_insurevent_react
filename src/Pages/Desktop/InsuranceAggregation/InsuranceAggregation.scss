@@ -1,0 +1,145 @@
+@import "../../../mixins.scss";
+
+.insuranceAggregation_wrapper {
+    .row {
+        max-width: 1224px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header {
+        margin: 90px 0 100px;
+        background: $theme-blue;
+        height: 635px;
+
+        .header_inner {
+            height: 650px;
+
+            h5 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                @include fontSize(42px);
+                line-height: 63px;
+                text-transform: capitalize;
+                color: $white;
+
+                span {
+                    font-weight: 700;
+                    display: block;
+                }
+            }
+
+            img {
+                height: 463px;
+
+                @media(max-width:1200px) {
+                    height: 300px;
+                }
+            }
+        }
+    }
+
+    .aggregationmodule_description {
+        margin-bottom: 100px;
+
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            text-align: center;
+            color: #444444;
+            margin-bottom: 60px;
+
+            span {
+                color: $theme-blue;
+            }
+        }
+
+        .aggregation_description_list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            li {
+                // width: 25%;
+                width: 282px;
+                height: 238px;
+                position: relative;
+
+                h6 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 500;
+                    @include fontSize(18px);
+                    line-height: 29px;
+                    color: $black;
+                    margin: 0;
+                    padding: 150px 0 0 30px;
+                    text-align: center;
+                }
+
+                $producticons: module_list1,
+                    module_list2,
+                    module_list3,
+                    module_list4;
+                $k: 0;
+
+                @each $icons in $producticons {
+                    $bacRightP: $k * 130;
+                    $k: $k +1;
+
+                    .#{$icons} {
+                        &:before {
+                            content: "";
+                            @include position(absolute, $left: calc(50% - 65px), $top: calc(50% - 95px));
+                            width: 130px;
+                            height: 130px;
+                            background: url("../../../../public/images/aggregation_module_img.svg")no-repeat -#{$bacRightP}px 0px/520px;
+                        }
+                    }
+                }
+
+                .module_overlay {
+                    display: none;
+                }
+
+                &:hover {
+                    .module_overlay {
+                        padding: 20px;
+                        background: $theme-blue;
+                        @include border-radius(10px);
+                        position: absolute;
+                        top: 0;
+                        z-index: 9;
+                        transition: 0.4s;
+                        height: 100%;
+                        width: 100%;
+                        display: block;
+
+                        h5 {
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 600;
+                            @include fontSize(18px);
+                            line-height: 29px;
+                            color: $white;
+                            margin-bottom: 10px;
+                            text-align: center;
+                        }
+
+                        p {
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 600;
+                            @include fontSize(14px);
+                            line-height: 24px;
+                            color: $white;
+                            text-align: center;
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

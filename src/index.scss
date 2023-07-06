@@ -1,0 +1,216 @@
+@import "mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: auto;
+    text-rendering: optimizeSpeed;
+    text-rendering: optimizeLegibility;
+    text-rendering: geometricPrecision;
+    font-synthesis: none;
+    -moz-font-feature-settings: "kern";
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    @include fontSize(14px);
+    overflow-x: hidden;
+    font-smooth: always;
+    font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+
+    li {
+        list-style-type: none;
+        color: #000;
+    }
+}
+
+// Margins
+@for $i from 0 to 20 {
+    .ml-#{$i} {
+        margin-left: 4px * $i !important;
+    }
+
+    .mr-#{$i} {
+        margin-right: 4px * $i !important;
+    }
+
+    .mt-#{$i} {
+        margin-top: 4px * $i !important;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: 4px * $i !important;
+    }
+
+    .mx-#{$i} {
+        margin-left: 4px * $i !important;
+        margin-right: 4px * $i !important;
+    }
+
+    .my-#{$i} {
+        margin-top: 4px * $i !important;
+        margin-bottom: 4px * $i !important;
+    }
+
+    .m-#{$i} {
+        margin-top: 4px * $i !important;
+        margin-bottom: 4px * $i !important;
+        margin-left: 4px * $i !important;
+        margin-right: 4px * $i !important;
+    }
+}
+
+// Paddings
+@for $i from 0 to 20 {
+    .pl-#{$i} {
+        padding-left: 4px * $i !important;
+    }
+
+    .pr-#{$i} {
+        padding-right: 4px * $i !important;
+    }
+
+    .pt-#{$i} {
+        padding-top: 4px * $i !important;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: 4px * $i !important;
+    }
+
+    .px-#{$i} {
+        padding-left: 4px * $i !important;
+        padding-right: 4px * $i !important;
+    }
+
+    .py-#{$i} {
+        padding-top: 4px * $i !important;
+        padding-bottom: 4px * $i !important;
+    }
+
+    .p-#{$i} {
+        padding-top: 4px * $i !important;
+        padding-bottom: 4px * $i !important;
+        padding-left: 4px * $i !important;
+        padding-right: 4px * $i !important;
+    }
+}
+
+@for $i from 0 to 100 {
+    .w-#{$i} {
+        width: 1% * $i !important;
+    }
+}
+
+a {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.textCenter {
+    text-align: center;
+}
+.alignSelfCenter{
+    align-self: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+.mb-60 {
+    margin-bottom: 60px;
+}
+.d-none{
+    display: none !important;
+}
+
+
+.MuiModal-root {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.text-end {
+    text-align: end !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-md-center {
+    @media(max-width:900px) and (min-width:768px) {
+        text-align: center !important;
+        margin: 0 auto;
+    }
+}
+
+.font-color {
+    color: $white !important;
+}
+
+.ps-6 {
+    padding-left: 6px !important;
+}
+
+.pe-6 {
+    padding-right: 6px !important;
+}
+
+//buttons
+.blueBtn {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    @include fontSize(14px);
+    line-height: 14px;
+    color: $white;
+    background: $theme-blue;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: inline-block;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}

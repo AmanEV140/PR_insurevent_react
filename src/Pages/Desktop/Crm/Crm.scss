@@ -1,0 +1,301 @@
+@import "../../../mixins.scss";
+
+.crm_wrapper {
+    .row {
+        max-width: 1224px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .header {
+        margin: 90px 0 100px;
+        background: $theme-blue;
+        height: 635px;
+
+        .header_inner {
+            height: 650px;
+
+            h5 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                @include fontSize(42px);
+                line-height: 63px;
+                text-transform: capitalize;
+                color: $white;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+
+            img {
+                height: 517px;
+
+                @media(max-width:992px) {
+                    height: 447px;
+                }
+            }
+        }
+    }
+
+    .what_crm {
+        margin-bottom: 100px;
+
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(42px);
+            line-height: 63px;
+            text-transform: capitalize;
+            color: #444444;
+            margin-bottom: 0;
+
+            span {
+                font-weight: 700;
+            }
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(14px);
+            line-height: 24px;
+            text-align: justify;
+            color: rgba(0, 0, 0, 0.56);
+            margin-bottom: 0;
+        }
+    }
+
+    .modules_description {
+        background: $theme-blue;
+        @include border-radius(60px);
+        padding: 80px 40px 0;
+        margin-bottom: 100px;
+
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            text-transform: capitalize;
+            color: $white;
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(14px);
+            line-height: 24px;
+            color: $white;
+            margin-bottom: 96px;
+        }
+
+        img {
+            height: 493px;
+
+            @media(max-width:992px) {
+                height: 380px;
+            }
+        }
+
+        .module_description_list {
+            min-height: 680px;
+            max-height: 680px;
+            overflow-y: auto;
+            scrollbar-width: none;
+
+            ul {
+                margin-bottom: 0;
+
+                .module_innner_list {
+                    background: $white;
+                    border: 1px solid rgba(0, 0, 0, 0.08);
+                    box-shadow: 26px 26px 95px rgba(0, 0, 0, 0.2);
+                    @include border-radius(20px);
+                    padding: 20px;
+                    margin-bottom: 25px;
+                    position: relative;
+                    $producticons: module_list1,
+                    module_list2,
+                    module_list3,
+                    module_list4;
+                    $k: 0;
+
+                    @each $icons in $producticons {
+                        $bacRightP: $k * 61;
+                        $k: $k +1;
+
+                        .#{$icons} {
+                            &:before {
+                                content: "";
+                                @include position(absolute, $left: 20px, $top: calc(50% - 30px));
+                                width: 61px;
+                                height: 61px;
+                                background: url("../../../../public/images/module_list_img.svg")no-repeat -#{$bacRightP}px 0px/244px;
+                            }
+                        }
+                    }
+
+
+                    .module_subinnner_list {
+                        padding-left: 76px;
+
+                        h6 {
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: 600;
+                            @include fontSize(18px);
+                            line-height: 29px;
+                            color: #444444;
+                            margin-bottom: 6px;
+                        }
+
+                        ul {
+                            margin-bottom: 0;
+
+                            li {
+                                font-family: 'Poppins', sans-serif;
+                                font-weight: 400;
+                                @include fontSize(14px);
+                                line-height: 24px;
+                                color: rgba(0, 0, 0, 0.56);
+                                margin-bottom: 2px;
+                                position: relative;
+                                padding-left: 21px;
+
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+
+                                &:before {
+                                    content: '';
+                                    background: url("../../../../public/images/module_list_arrow.svg") no-repeat;
+                                    height: 24px;
+                                    width: 16px;
+                                    @include position(absolute, $left: 0px, $top: 10px);
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .usp_benefits {
+        margin-bottom: 100px;
+
+        img {
+            height: 635px;
+
+            @media(max-width:1100px) {
+                height: 400px;
+            }
+        }
+
+        .benefits_inner_section {
+            h5 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                @include fontSize(42px);
+                line-height: 63px;
+                color: #444444;
+                margin-bottom: 12px;
+
+                span {
+                    color: $theme-blue;
+                }
+            }
+
+            p {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                @include fontSize(14px);
+                line-height: 24px;
+                color: rgba(0, 0, 0, 0.5);
+                margin-bottom: 30px;
+            }
+
+            ul {
+                margin-bottom: 0px;
+
+                li {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 400;
+                    @include fontSize(14px);
+                    line-height: 24px;
+                    color: #444444;
+                    padding-left: 42px;
+                    position: relative;
+                    margin-bottom: 20px;
+
+                    &:before {
+                        content: '';
+                        @include position (absolute, $left: 0, $top: calc(50% - 15px));
+                        height: 30px;
+                        width: 30px;
+                        background: url("../../../../public/images/yellow_tick_icon.svg") no-repeat;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .request_demo {
+        margin-bottom: 100px;
+        background: #F3F2FC;
+        @include border-radius(30px);
+        padding: 60px 30px 20px;
+
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            color: #444444;
+            margin-bottom: 6px;
+
+            span {
+                color: $theme-blue;
+            }
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(14px);
+            line-height: 24px;
+            color: rgba(0, 0, 0, 0.56);
+            margin-bottom: 100px;
+        }
+
+        img {
+            height: 345px;
+        }
+
+        .crm_formSection {
+            padding: 50px 33px;
+            background: $white;
+            @include border-radius(30px);
+
+            .blueBtn {
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                @include fontSize(14px);
+                line-height: 21px;
+                color: $white;
+                background: $theme-blue;
+                padding: 14px 24px;
+                @include border-radius(8px);
+                display: inline-block;
+                text-transform: capitalize;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}

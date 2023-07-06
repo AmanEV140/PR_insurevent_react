@@ -1,0 +1,133 @@
+@import '../../../mixins.scss';
+
+.footer {
+    background: $theme-blue;
+    padding: 54px 25px;
+
+    .footer_boy {
+        margin-bottom: 28px;
+    }
+
+    h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        @include fontSize(20px);
+        line-height: 25px;
+        text-transform: uppercase;
+        color: $white;
+        margin-bottom: 24px;
+    }
+
+    .product_list {
+        li {
+            margin-bottom: 16px;
+            @include fontSize(16px);
+            line-height: 19px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+
+            a {
+                color: rgba(255, 255, 255, 0.6);
+
+                &:hover {
+                    color: $white;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    hr {
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    }
+
+    .address_detail {
+        a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            @include fontSize(14px);
+            line-height: 21px;
+            color: $white;
+        }
+
+        span {
+            font-family: 'Poppins', sans-serif;
+            @include fontSize(14px);
+            font-weight: 400;
+            line-height: 21px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(14px);
+            line-height: 21px;
+            color: $white;
+            margin-top: 11px;
+        }
+    }
+
+    .social_sites {
+        ul {
+            display: flex;
+            justify-content: end;
+
+            @media(max-width:992px) {
+                justify-content: start;
+            }
+
+            li {
+                margin-right: 19px;
+                margin-bottom: 8px;
+
+                &:last-child {
+                    margin-right: 0px;
+                }
+
+                a {
+                    outline: none;
+
+                    &:hover,
+                    &:focus {
+                        opacity: 0.7;
+                        outline: none;
+                    }
+
+                    $othericons: facebook, linkedin, instagram, youtube;
+                    $k: 0;
+
+                    @each $icons in $othericons {
+                        $bacRightP: $k * 22;
+                        $k: $k +1;
+
+                        &.#{$icons} {
+                            position: relative;
+                            background: url("../../../../public/images/social-icons.png") no-repeat -#{$bacRightP}px 0px/88px;
+                            display: block;
+                            height: 28px;
+                            width: 22px;
+                        }
+                    }
+                }
+            }
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(14px);
+            line-height: 21px;
+            color: $white;
+            text-align: end;
+            margin-bottom: 0;
+
+            @media(max-width:992px) {
+                text-align: start;
+            }
+        }
+    }
+}

@@ -1,0 +1,889 @@
+@import '../../../mixins.scss';
+
+#{$homePage}Wrapper {
+    padding-top: 160px;
+
+    .row {
+        max-width: 1224px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .heading {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        @include fontSize(42px);
+        line-height: 63px;
+        color: #444444;
+        margin-bottom: 6px;
+
+        span {
+            color: $theme-blue;
+        }
+    }
+
+    .heading_content {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        @include fontSize(16px);
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.56);
+        margin-bottom: 0;
+    }
+
+    .header {
+        height: 600px;
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(42px);
+            line-height: 63px;
+            color: #444444;
+            margin-bottom: 36px;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            @include fontSize(16px);
+            line-height: 24px;
+            color: rgba(0, 0, 0, 0.56);
+            margin-bottom: 36px;
+        }
+
+        .headerimg {
+            display: block;
+            max-width: 556px;
+            width: 100%;
+        }
+
+        .blueBtn {
+            &.arrow_icon {
+                padding-right: 68px;
+                position: relative;
+
+                &:before {
+                    content: '';
+                    @include position(absolute, $right: 18px, $top: calc(50% - 10px));
+                    background: url("../../../../public/images/explore_right_arrow.svg") no-repeat;
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+        }
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, -3%, 0)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateZ(0)
+        }
+    }
+
+
+
+    .products_offer {
+        background: #F3F2FC;
+        @include border-radius(60px);
+        padding: 51px 99px 0 60px;
+        margin-bottom: 150px;
+
+        .product_img {
+            animation: fadeIn 1s both;
+        }
+
+        .productTabs {
+            @include border-radius(10px 10px 0px 0px);
+            min-height: 560px;
+            max-height: 560px;
+            overflow-y: auto;
+            scrollbar-width: none;
+
+            .MuiButtonBase-root {
+                display: block !important;
+                padding: 15px 15px 15px 89px;
+                text-align: left;
+                position: relative;
+
+                h6 {
+                    font-family: 'Poppins', sans-serif;
+                    @include fontSize(18px);
+                    line-height: 24px;
+                    font-weight: 600;
+                    display: block;
+                    color: $black;
+                    margin-bottom: 4px;
+                    letter-spacing: 0;
+                    text-transform: none;
+
+                    &:last-child {
+                        color: rgba(0, 0, 0, 0.3);
+                        @include fontSize(14px);
+                        font-weight: 400;
+                        line-height: 24px;
+                    }
+                }
+
+                p {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    @include fontSize(14px);
+                    line-height: 24px;
+                    color: rgba(0, 0, 0, 0.3);
+                    margin-bottom: 0;
+                    letter-spacing: 0;
+                    text-transform: none;
+                }
+
+                &.active {
+                    background: $theme-blue;
+                    @include border-radius(22px);
+
+                    &:after {
+                        background-position: -24px 0px;
+                    }
+
+                    h6,
+                    p {
+                        color: $white;
+
+                        &:last-child {
+                            color: rgba($white, 0.8);
+                        }
+                    }
+                }
+
+            }
+
+            h2 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                @include fontSize(42px);
+                line-height: 63px;
+                color: #444444;
+                margin-bottom: 12px;
+
+                span {
+                    color: $theme-blue;
+                }
+            }
+
+            p {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                @include fontSize(16px);
+                line-height: 24px;
+                color: rgba(0, 0, 0, 0.3);
+                margin-bottom: 40px;
+            }
+
+            hr {
+                width: 386px;
+                margin: 20px auto;
+                color: #D5D5D5 !important;
+            }
+
+            $producticons: product_icon1, product_icon2, product_icon3,
+                product_icon4, product_icon5, product_icon6;
+            $k: 0;
+
+            @each $icons in $producticons {
+                $bacRightP: $k * 54;
+                $k: $k +1;
+
+                .#{$icons} {
+                    &:before {
+                        content: "";
+                        @include position(absolute, $left: 15px, $top: calc(50% - 27px));
+                        width: 54px;
+                        height: 54px;
+                        background: url("../../../../public/images/products_offer_icons.png")no-repeat -#{$bacRightP}px 0px/324px;
+                    }
+                }
+            }
+        }
+    }
+
+    .potential_client {
+        background: $theme-blue;
+        @include border-radius(30px);
+        padding: 43px 50px;
+        position: relative;
+        margin-bottom: 80px;
+
+        &:before {
+            content: '';
+            background: url("../../../../public/images/lines.svg") no-repeat;
+            @include position(absolute, $left: 0px, $top: 0);
+            height: 100%;
+            width: 100%;
+        }
+
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            @include fontSize(18px);
+            line-height: 29px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            @include fontSize(24px);
+            line-height: 35px;
+            color: #E0DEF7;
+            margin-bottom: 0px;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0;
+
+            li {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                @include fontSize(16px);
+                line-height: 32px;
+                text-align: center;
+                color: #F2F2F2;
+                position: relative;
+                min-width: 100px;
+
+                @media(max-width:992px) {
+                    line-height: 22px;
+                }
+
+                &:before {
+                    content: '';
+                    background: $white;
+                    width: 2px;
+                    height: 100%;
+                    @include position(absolute, $right: -20px, $top: 0);
+                }
+
+                @media(max-width:1170px) {
+                    right: -10px;
+                }
+
+                @media(max-width:1122px) {
+                    right: -10px;
+                }
+
+                @media(max-width:1050px) {
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                &:last-child {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+
+            span {
+                display: block;
+                padding-top: 6px;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                @include fontSize(42px);
+                line-height: 50px;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .service_section {
+        margin-bottom: 150px;
+
+        .css-ohwg9z {
+            padding-top: 90px;
+
+            .inner_section {
+                background: #F3F2FC;
+                padding: 0px 24px 38px;
+                @include border-radius(30px);
+                width: 368px;
+                height: 379px;
+
+                img {
+                    height: "205px";
+                    width: "245px";
+                    position: relative;
+                    top: -50px;
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                h6 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 700;
+                    @include fontSize(22px);
+                    line-height: 30px;
+                    color: #444444;
+                    margin-bottom: 12px;
+                }
+
+                p {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    @include fontSize(16px);
+                    line-height: 24px;
+                    color: rgba(0, 0, 0, 0.5);
+                    margin-bottom: 0;
+                }
+
+                &.active {
+                    background: $theme-blue;
+
+                    h6 {
+                        color: $white;
+                    }
+
+                    p {
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+                }
+            }
+        }
+
+
+
+
+        .css-1abc02a {
+            display: none;
+        }
+
+        .css-hn784z {
+            display: none;
+        }
+
+        .css-1m9128y {
+            button {
+                svg {
+                    color: rgba(0, 0, 0, 0.16);
+
+                    // width: 35px;
+                    // height: 2px;
+                    &:active {
+                        color: $theme-blue;
+                    }
+
+                    &:focus {
+                        color: $theme-blue;
+                    }
+                }
+            }
+        }
+    }
+
+    .brand_business {
+        margin-bottom: 150px;
+
+        .brand_content {
+            align-self: center;
+
+            @media(max-width:1199px) {
+                text-align: center;
+            }
+        }
+
+        .brand_list {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+            @media(max-width:1199px) {
+                justify-content: center;
+            }
+
+            .brand_list_logo {
+                margin-right: 15px;
+
+                li {
+                    height: 112px;
+                    width: 135px;
+                    background: $white;
+                    border: 1px solid rgba(0, 0, 0, 0.08);
+                    box-shadow: 26px 26px 89px rgba(0, 0, 0, 0.1);
+                    @include border-radius(20px);
+                    margin-bottom: 12px;
+                    position: relative;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        $brandicon: srg, instantbeema, auxilium,
+            shareindia, atelier, swastika, bharatre, ahalia, motilal, parivar, jbboda, samyag, mannapuram, jrk;
+        $k: 0;
+
+        @each $icons in $brandicon {
+            $bacRightP: $k * 110;
+            $k: $k +1;
+
+            .#{$icons} {
+                &:before {
+                    content: "";
+                    @include position(absolute, $left: calc(50% - 55px), $top: 20px);
+                    width: 110px;
+                    height: 63px;
+                    background: url("..../../../../../../public/images/brands_business_icons.svg")no-repeat -#{$bacRightP}px 0px/1540px;
+                }
+            }
+        }
+    }
+
+    .why_insurevent {
+        margin-bottom: 150px;
+
+        .css-ohwg9z {
+            padding-top: 90px;
+
+            .insurevent_inner {
+                img {
+                    height: 190px;
+                    width: 200px;
+                    display: block;
+                    margin: 0 auto 60px;
+                    opacity: 0.1;
+                }
+
+                h6 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 700;
+                    @include fontSize(24px);
+                    line-height: 35px;
+                    text-align: center;
+                    color: #252243;
+                    margin-bottom: 16px;
+                    opacity: 0.1;
+                }
+
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 400;
+                    @include fontSize(16px);
+                    line-height: 24px;
+                    color: rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    margin-bottom: 0;
+                    min-height: 200px;
+                }
+
+                &.active {
+                    img {
+                        height: 270px;
+                        width: 300px;
+                        display: block;
+                        margin: 0 auto 60px;
+                        opacity: 0.9;
+                    }
+
+
+                    h6 {
+                        color: #252243 !important;
+                        opacity: 0.9;
+                    }
+
+                    p {
+                        color: rgba(0, 0, 0, 0.56);
+                    }
+                }
+            }
+        }
+
+        .css-1abc02a {
+            display: none;
+        }
+
+        .css-hn784z {
+            display: none;
+        }
+
+        .css-1m9128y {
+            text-align: center;
+            margin-left: 10px;
+
+            svg {
+                display: none;
+            }
+
+            button {
+                border: 1px solid rgba(0, 0, 0, 0.16);
+                width: 35px;
+                margin-right: 10px;
+
+                &:active {
+                    border-color: $theme-blue;
+                }
+
+                &:focus {
+                    border-color: $theme-blue;
+                }
+            }
+        }
+
+
+
+    }
+
+    .insurer_partner {
+        background: #F3F2FC;
+        margin-bottom: 150px;
+        padding: 111px 0;
+
+        .css-1abc02a {
+            display: none;
+        }
+
+        .css-hn784z {
+            display: none;
+        }
+
+        .css-1m9128y {
+            text-align: start;
+            margin-left: 10px;
+
+            svg {
+                display: none;
+            }
+
+            button {
+                border: 1px solid rgba(0, 0, 0, 0.16);
+                width: 35px;
+                margin-right: 10px;
+
+                &:active {
+                    border-color: $theme-blue;
+                }
+
+                &:focus {
+                    border-color: $theme-blue;
+                }
+            }
+        }
+    }
+
+    .upcoming_products {
+        margin-bottom: 230px;
+
+        .upcoming_innersection {
+            padding-top: 140px;
+            position: relative;
+            margin-bottom: 90px;
+
+            .img_section {
+                display: flex;
+                justify-content: center;
+            }
+
+            &:before {
+                content: '';
+                background: url("../../../../public/images/upcoming_bg.svg") no-repeat center center/cover;
+                @include position(absolute, $left: 0, $top: 140px);
+                height: 68%;
+                width: 106%;
+                z-index: -99;
+            }
+
+            @media(max-width:992px) {
+                &:before {
+                    display: none;
+                }
+            }
+
+            .upcoming_heading {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                @include fontSize(24px);
+                line-height: 35px;
+                color: #252243;
+                margin-bottom: 12px;
+            }
+
+            .upcoming_content {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                @include fontSize(16px);
+                line-height: 24px;
+                color: rgba(0, 0, 0, 0.56);
+                margin-bottom: 0;
+            }
+        }
+
+        .MuiButtonBase-root {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            @include fontSize(18px);
+            line-height: 23px;
+            color: #BDBDBD;
+            background: transparent;
+            position: relative;
+            top: 70px;
+            height: 70px;
+            text-transform: capitalize;
+
+            &.active {
+                color: $black !important;
+                font-weight: 700;
+
+                &:after {
+                    filter: grayscale(0) !important;
+                    background: $theme-blue !important;
+                }
+
+                &:before {
+                    filter: grayscale(0) !important;
+                }
+            }
+
+            @media(max-width:850px) {
+                padding: 8px 10px;
+            }
+
+            &:after {
+                content: "";
+                @include position(absolute, $left: calc(50% - 56px), $top: -70px);
+                width: 112px;
+                height: 70px;
+                background: $theme-blue;
+                @include border-radius(0px 0px 80px 80px);
+                filter: grayscale(1);
+            }
+
+        }
+
+        $upcomingicons: commercial, insurance_platform, marine, dialpro, fire, liability;
+        $k: 0;
+
+        @each $icons in $upcomingicons {
+            $bacRightP: $k * 112;
+            $k: $k +1;
+
+            .#{$icons} {
+                &:before {
+                    content: "";
+                    @include position(absolute, $left: calc(50% - 56px), $top: calc(50% - 153px));
+                    width: 112px;
+                    height: 98px;
+                    background: url("../../../../public/images/upcoming_products_icons.png")no-repeat -#{$bacRightP}px 0px/672px;
+                    z-index: 9999;
+                    filter: grayscale(1);
+                }
+
+            }
+
+
+        }
+    }
+
+    .testimonial_section {
+        background: #EFEEF8;
+        margin-bottom: 150px;
+        padding: 75px 0;
+
+
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            @include fontSize(18px);
+            line-height: 29px;
+            margin-bottom: 20px;
+        }
+
+        .rating {
+            position: relative;
+            margin-bottom: 18px;
+            height: 37px;
+            display: inline-block;
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            @include fontSize(16px);
+            line-height: 32px;
+            margin-bottom: 0px;
+
+        }
+
+        .testimonial_inner {
+            @include border-radius(10px 10px 0px 0px);
+            padding: 0px 20px 0 14px;
+            min-height: 390px;
+            max-height: 390px;
+            overflow-y: auto;
+            scrollbar-width: none;
+
+            -webkit-scrollbar {
+                width: 0 !important;
+                display: none !important;
+            }
+
+            .MuiButtonBase-root {
+                display: block;
+                padding: 20px 15px 20px 130px;
+                margin-bottom: 20px;
+                text-align: left;
+                position: relative;
+
+                h5 {
+                    font-family: 'Poppins', sans-serif;
+                    @include fontSize(18px);
+                    line-height: 29px;
+                    font-weight: 600;
+                    color: #252243;
+                    margin-bottom: 6px;
+                    text-transform: capitalize;
+
+                    span {
+                        display: block;
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        @include fontSize(16px);
+                        line-height: 32px;
+                        color: #444444;
+                        text-transform: uppercase;
+                    }
+                }
+
+                &.active {
+                    background: $theme-blue;
+                    box-shadow: 26px 26px 89px rgba(0, 0, 0, 0.1);
+                    @include border-radius(10px);
+
+                    &:after {
+                        background-position: -24px 0px;
+                    }
+
+                    h5 {
+                        color: $white;
+
+                        span {
+                            color: $white;
+                        }
+                    }
+                }
+
+
+                h2 {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 700;
+                    @include fontSize(42px);
+                    line-height: 63px;
+                    color: #444444;
+                    margin-bottom: 12px;
+
+                    span {
+                        color: $theme-blue;
+                    }
+                }
+
+                p {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    @include fontSize(16px);
+                    line-height: 24px;
+                    color: rgba(0, 0, 0, 0.3);
+                    margin-bottom: 40px;
+                }
+            }
+
+
+        }
+
+
+        $testimonialicon: testimonial_icon1, testimonial_icon2,
+            testimonial_icon3;
+        $k: 0;
+
+        @each $icons in $testimonialicon {
+            $bacRightP: $k * 78;
+            $k: $k +1;
+
+            .#{$icons} {
+                &:before {
+                    content: "";
+                    @include position(absolute, $left: 20px, $top: calc(50% - 38px));
+                    width: 78px;
+                    height: 78px;
+                    background: url("../../../../public/images/testimonial_img.png")no-repeat -#{$bacRightP}px 0px/234px;
+                }
+            }
+        }
+
+        $staricon: star_icon1, star_icon2,
+            star_icon3, star_icon4, star_icon5, star_icon6;
+        $k: 0;
+
+        @each $icons in $staricon {
+            $bacRightP: $k * 37;
+            $k: $k +1;
+
+            .#{$icons} {
+                &:before {
+                    content: "";
+                    @include position(absolute, $left: 0px, $top: 0);
+                    width: 185px;
+                    height: 37px;
+                    background: url("../../../../public/images/star_img.svg")no-repeat 0px -#{$bacRightP}px /185px;
+                }
+            }
+        }
+
+    }
+
+    .getin_touch {
+        margin-bottom: 150px;
+
+        .getin_touch_inner {
+            background: #EFEEF8;
+            @include border-radius(20px);
+            width: 326px;
+            height: 443px;
+        }
+
+        .formSection {
+            background: rgba(100, 88, 216, 0.08);
+            @include border-radius(20px);
+            padding: 59px 40px;
+
+            @media(max-width:992px) {
+                margin-top: 24px !important;
+            }
+
+            .blueBtn {
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                @include fontSize(18px);
+                line-height: 18px;
+                color: $white;
+                background: $theme-blue;
+                padding: 16px 32px;
+                @include border-radius(5px);
+                display: inline-block;
+                text-transform: capitalize;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
+}

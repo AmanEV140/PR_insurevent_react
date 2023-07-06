@@ -1,0 +1,128 @@
+@import "../../../mixins.scss";
+
+.uniqueSelling_wrapper {
+    .selling_points {
+        margin-bottom: 100px;
+        background: #F3F2FC;
+        @include border-radius(30px);
+        padding: 60px 40px 0;
+
+        @media(max-width:992px) {
+            text-align: center;
+        }
+
+        .selling_points_inner {
+            h6 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                @include fontSize(42px);
+                line-height: 63px;
+                color: #444444;
+                margin-bottom: 40px;
+
+                span {
+                    color: $theme-blue;
+                }
+            }
+
+            img {
+                width: 398px;
+            }
+
+            @media(max-width:1000px) {
+                img {
+                    width: 300px;
+                }
+            }
+
+            @media(max-width:1200px) {
+                text-align: center;
+            }
+        }
+
+
+
+        .erp_selling_list {
+            min-height: 600px;
+            max-height: 600px;
+            overflow-y: auto;
+            scrollbar-width: none;
+
+            li {
+                background: $white;
+                box-shadow: -16px 0px 20px rgba(100, 88, 216, 0.2);
+                @include border-radius(10px);
+                padding: 20px 30px 20px 30px;
+                position: relative;
+                display: flex;
+                margin-bottom: 20px;
+                min-height: 80px;
+
+                p {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    @include fontSize(14px);
+                    line-height: 21px;
+                    color: rgba(0, 0, 0, 0.56);
+                    margin-bottom: 0px;
+                    padding-left: 70px;
+                    align-self: center;
+                }
+
+                &:after {
+                    content: '';
+                    @include position(absolute, $left: 0, $top: 0);
+                    background: $theme-blue;
+                    @include border-radius(10px 0px 0px 10px);
+                    height: 100%;
+                    width: 15px;
+                }
+
+                .innerbox {
+                    display: block;
+                    position: relative;
+
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        background: rgba(107, 98, 220, 0.2);
+                        width: 60px;
+                        height: 60px;
+                        @include border-radius(50%);
+                        top: calc(50% - 30px);
+                    }
+                }
+
+
+            }
+
+            $producticons: selling_list1, selling_list2,
+                selling_list3,
+                selling_list4,
+                selling_list5,
+                selling_list6,
+                selling_list7,
+                selling_list8;
+            $k: 0;
+
+            @each $icons in $producticons {
+                $bacRightP: $k * 40;
+                $k: $k +1;
+
+                .#{$icons} {
+                    &:before {
+                        content: "";
+                        @include position(absolute, $left: 10px, $top: calc(50% - 20px));
+                        width: 40px;
+                        height: 40px;
+                        background: url("../../../../public/images/erp_selling_point.svg")no-repeat -#{$bacRightP}px 0px/320px;
+                        z-index: 9;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+}
